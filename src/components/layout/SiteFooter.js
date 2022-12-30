@@ -14,12 +14,6 @@ export const SiteFooter = () => (
           <Col>
             <YearComponent />
           </Col>
-          <Col>
-            <a href="https://reactjs.org/">React</a>
-          </Col>
-          <Col>
-            <a href="https://fastapi.tiangolo.com/">FastAPI</a>
-          </Col>
         </Row>
       </Container>
     </Navbar>

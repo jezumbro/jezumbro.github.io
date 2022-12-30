@@ -1,4 +1,4 @@
-const reportWebVitals = (onPerfEntry) => {
+export const reportWebVitals = (onPerfEntry) => {
   if (onPerfEntry && onPerfEntry instanceof Function) {
     import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
       getCLS(onPerfEntry)
@@ -10,4 +10,11 @@ const reportWebVitals = (onPerfEntry) => {
   }
 }
 
-export default reportWebVitals
+export const sendToAnalytics = (metric) => {
+  const body = JSON.stringify(metric)
+  fetch('https://api.zumbrohomestead.com/page-analytics', {
+    method: 'POST',
+    body,
+    keepalive: true,
+  }).then((r) => r)
+}

@@ -3,7 +3,8 @@ import { SiteNavBar } from './SiteNavBar'
 import { Container } from 'react-bootstrap'
 
 export const Layout = ({ children }) => (
-  <div
+  <Container
+    fluid
     className="layout"
     style={{ display: 'flex', flexDirection: 'column', height: '100%' }}
   >
@@ -12,5 +13,5 @@ export const Layout = ({ children }) => (
       {children}
     </Container>
     <SiteFooter />
-  </div>
+  </Container>
 )

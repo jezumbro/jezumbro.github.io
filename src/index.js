@@ -2,9 +2,9 @@ import { App } from './App'
 import { Layout } from './components/layout/Layout'
 import './index.css'
 import React from 'react'
-import ReactDOM from 'react-dom/client'
+import { createRoot } from 'react-dom/client'
 
-const root = ReactDOM.createRoot(document.getElementById('root'))
+const root = createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
     <Layout>
@@ -12,3 +12,4 @@ root.render(
     </Layout>
   </React.StrictMode>
 )
+// reportWebVitals(sendToAnalytics)

@@ -13,7 +13,7 @@ export const App = () => {
   }, [])
 
   return (
-    <Container style={{ textAlign: 'center' }}>
+    <Container className="text-center">
       <Row>
         <h1>Zeke Zumbro</h1>
         <Row className="d-inline">
@@ -28,10 +28,10 @@ export const App = () => {
       <Row className="pt-4 justify">
         <p>Enneagram 9 wing 1, who is loves doing thing the "right" way</p>
         <p>
-          I am passionate about making processes, code, life better. I currently
-          work at Beyond Pricing making the world better though dynamic pricing.
-          I love exploring software and technology from unit test frameworks to
-          3D printers and home.
+          I am passionate about making processes, code, and life better. I
+          currently work at Beyond Pricing making the world better though
+          dynamic pricing. I love exploring software and technology from unit
+          test frameworks to 3D printers and home.
         </p>
       </Row>
     </Container>
