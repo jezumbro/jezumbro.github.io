@@ -11,6 +11,7 @@
     "bootstrap": "^5.2.0",
     "gatsby": "^5.11.0",
     "gatsby-plugin-image": "^3.11.0",
+    "gatsby-plugin-posthog": "^1.0.1",
     "gatsby-plugin-sharp": "^5.11.0",
     "gatsby-source-filesystem": "^5.11.0",
     "gatsby-transformer-sharp": "^5.11.0",
@@ -22,7 +23,7 @@
   },
   "scripts": {
     "predeploy": "gatsby build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d public",
     "dev": "gatsby develop",
     "build": "gatsby build"
   },

@@ -3,9 +3,6 @@ import posthog from 'posthog-js'
 import React from 'react'
 import { Container, Image, Row } from 'react-bootstrap'
 
-posthog.init('phc_1P0jj11b9N17pkpp9Z8CV5Wp7UHV8NZRlLunUFaU6pa', {
-  autocapture: false,
-})
 export const App = () => {
   return (
     <Container className="text-center">
