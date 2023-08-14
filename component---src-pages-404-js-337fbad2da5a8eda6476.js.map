@@ -1,0 +1,1 @@
+{"version":3,"file":"component---src-pages-404-js-337fbad2da5a8eda6476.js","mappings":"mIAGA,UAHqB,WACnB,OAAOA,MAAAC,cAAA,WAAK,YACd,C","sources":["webpack://jezumbro.github.io/./src/pages/404.js"],"sourcesContent":["const NotFoundPage = () => {\n  return <div>Not Found</div>\n}\nexport default NotFoundPage\n"],"names":["React","createElement"],"sourceRoot":""}
