@@ -1,5 +1,5 @@
-import { App } from './App'
-import { Layout } from './components/layout/Layout'
+import { App } from './components/App'
+import { Layout } from './components/layout'
 import './index.css'
 import posthog from 'posthog-js'
 import React from 'react'

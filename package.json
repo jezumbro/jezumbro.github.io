@@ -9,27 +9,25 @@
     "@testing-library/user-event": "^13.5.0",
     "@vitejs/plugin-react": "^4.0.4",
     "bootstrap": "^5.2.0",
+    "gatsby": "^5.11.0",
+    "gatsby-plugin-image": "^3.11.0",
+    "gatsby-plugin-sharp": "^5.11.0",
+    "gatsby-source-filesystem": "^5.11.0",
+    "gatsby-transformer-sharp": "^5.11.0",
     "posthog-js": "^1.76.0",
-    "prettier": "^2.7.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "vite": "^4.4.9",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build",
+    "predeploy": "gatsby build",
     "deploy": "gh-pages -d build",
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "gatsby develop",
+    "build": "gatsby build"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "extends": []
   },
   "browserslist": {
     "production": [
@@ -45,6 +43,8 @@
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^3.3.0",
-    "gh-pages": "^4.0.0"
+    "eslint": "^7.32.0",
+    "gh-pages": "^4.0.0",
+    "prettier": "^2.7.1"
   }
 }

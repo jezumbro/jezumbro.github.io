@@ -1,24 +1,19 @@
-import './App.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { useEffect } from 'react'
+import { StaticImage } from 'gatsby-plugin-image'
+import posthog from 'posthog-js'
+import React from 'react'
 import { Container, Image, Row } from 'react-bootstrap'
 
+posthog.init('phc_1P0jj11b9N17pkpp9Z8CV5Wp7UHV8NZRlLunUFaU6pa', {
+  autocapture: false,
+})
 export const App = () => {
-  useEffect(() => {
-    fetch('https://api.zumbrohomestead.com/page-view', {
-      method: 'POST',
-      body: JSON.stringify({ page: 'about' }),
-      headers: { 'Content-Type': 'application/json' },
-    }).then((resp) => console.log(resp))
-  }, [])
-
   return (
     <Container className="text-center">
       <Row>
         <h1>Zeke Zumbro</h1>
         <Row className="d-inline">
           <Container style={{ width: '300px' }}>
-            <Image src="/images/about.jpg" alt="logo" fluid />
+            <StaticImage src={'../images/about.jpg'} alt={'logo'} />
           </Container>
         </Row>
         <Row className="justify-content-center align-content-center text-white-50 font-monospace d-inline pt-2">
@@ -29,9 +24,8 @@ export const App = () => {
         <p>Enneagram 9 wing 1, who is loves doing thing the "right" way</p>
         <p>
           I am passionate about making processes, code, and life better. I
-          currently work at Beyond Pricing making the world better though
-          dynamic pricing. I love exploring software and technology from unit
-          test frameworks to 3D printers and home.
+          currently work at Walmart. I love exploring software and technology
+          from unit test frameworks to 3D printers and home.
         </p>
       </Row>
     </Container>
