@@ -27,7 +27,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "format:check": "prettier --check .",
-    "format::write": "prettier --write ."
+    "format::write": "prettier --write .",
+    "prepare": "husky",
+    "commitlint": "commitlint --edit"
   },
   "eslintConfig": {
     "extends": []
@@ -45,9 +47,12 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
     "@trivago/prettier-plugin-sort-imports": "5.2",
     "eslint": "^7.32.0",
     "gh-pages": "6.2",
+    "husky": "^9.1.7",
     "prettier": "^3.4.2",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.9"
