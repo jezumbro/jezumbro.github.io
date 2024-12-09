@@ -14,10 +14,10 @@ import PostHog from '../components/posthog.astro'
     <title>About</title>
     <PostHog />
   </head>
-  <body class="h-screen">
-    <header class="inset-x-0 top-0 z-50 bg-zinc-600">
+  <body>
+    <header class="inset-x-0 bg-zinc-600">
       <nav
-        class="flex items-center justify-between border-b-gray-500 p-6 text-gray-400 lg:px-8"
+        class="flex items-center justify-between p-6 text-gray-400 lg:px-8"
         aria-label="Global"
       >
         <div class="flex space-x-4 lg:flex-1">
@@ -30,7 +30,7 @@ import PostHog from '../components/posthog.astro'
       </nav>
     </header>
     <div
-      class="h-full grow flex-col justify-center bg-zinc-600 px-6 pt-10 text-center align-middle text-white lg:px-8"
+      class="h-[calc(100vh-72px)] grow flex-col justify-center bg-zinc-600 px-6 pt-10 text-center align-middle text-white lg:px-8"
     >
       <div>
         <h1 class="p-2 text-2xl">Zeke Zumbro</h1>
