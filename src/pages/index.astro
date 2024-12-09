@@ -1,0 +1,61 @@
+---
+import '../styles/index.css'
+import { Image } from 'astro:assets'
+import AboutImage from '../images/about.jpg'
+import PostHog from '../components/posthog.astro'
+---
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="_image/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>About</title>
+    <PostHog />
+  </head>
+  <body class="h-screen">
+    <header class="inset-x-0 top-0 z-50 bg-zinc-600">
+      <nav
+        class="flex items-center justify-between border-b-gray-500 p-6 text-gray-400 lg:px-8"
+        aria-label="Global"
+      >
+        <div class="flex space-x-4 lg:flex-1">
+          <a href="/" class="font-bold text-white">Zeke Zumbro</a>
+          <a href="zumbrohomestead.com">Homestead</a>
+        </div>
+        <div>
+          <a href="https://pdga.com/player/144357">PDGA</a>
+        </div>
+      </nav>
+    </header>
+    <div
+      class="flex-col grow justify-center bg-zinc-600 px-6 pt-10 text-center align-middle text-white lg:px-8 h-full"
+    >
+      <div>
+        <h1 class="p-2 text-2xl">Zeke Zumbro</h1>
+        <div>
+          <Image
+            src={AboutImage}
+            width="300"
+            decoding="auto"
+            alt="logo"
+            class="mx-auto rounded-md"
+            loading="eager"
+          />
+        </div>
+        <div class="pt-2 font-semibold text-gray-400 font-mono">
+          Disc-Golfer. Dog-lover. Christ-follower.
+        </div>
+      </div>
+      <div class="justify space-y-4 pt-4">
+        <p>Enneagram 9 wing 1, who is loves doing thing the "right" way</p>
+        <p class="mx-auto lg:w-[600px] text-pretty">
+          I am passionate about making processes, code, and life better. I
+          currently work at Walmart. I love exploring software and technology
+          from unit test frameworks to 3D printers and home.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
