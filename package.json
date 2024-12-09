@@ -5,6 +5,7 @@
   "private": true,
   "type": "commonjs",
   "dependencies": {
+    "@astrojs/mdx": "^4.0.2",
     "@astrojs/react": "^4.0.0",
     "@astrojs/tailwind": "^5.1.3",
     "@testing-library/jest-dom": "^5.16.5",
