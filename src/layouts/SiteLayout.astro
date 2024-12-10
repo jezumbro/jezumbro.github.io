@@ -1,0 +1,30 @@
+---
+import PostHog from '../components/posthog.astro'
+const { title } = Astro.props
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="_image/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>About</title>
+    <PostHog />
+  </head>
+  <body>
+    <header class="inset-x-0 bg-zinc-600">
+      <nav
+        class="flex items-center justify-between p-6 text-gray-400 lg:px-8"
+        aria-label="Global"
+      >
+        <div class="flex space-x-4 lg:flex-1">
+          <a href="/" class="font-bold text-white">Zeke Zumbro</a>
+        </div>
+      </nav>
+    </header>
+    <main class="h-[calc(100vh-72px)] grow flex-col">
+      <slot />
+    </main>
+  </body>
+</html>
