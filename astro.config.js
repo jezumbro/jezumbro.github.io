@@ -6,5 +6,12 @@ import mdx from '@astrojs/mdx'
 
 export default defineConfig({
   site: 'https://jezumbro.github.com',
-  integrations: [react(), tailwind(), mdx()],
+  integrations: [
+    react(),
+    tailwind({
+      applyBaseStyles: false,
+    }),
+    mdx(),
+  ],
+  server: { port: 3000 },
 })

@@ -1,16 +1,22 @@
 ---
+import SiteLayout from '../../layouts/site-layout.astro'
 import { getCollection } from 'astro:content'
 const posts = await getCollection('blog', ({ data }) => data.draft !== true)
-console.log(posts)
 ---
 
-<p>Post archive:</p>
-<ul>
-  {
-    posts.map((post) => (
-      <li>
-        <a href={`/blog/${post.data.slug}`}>{post.data.title}</a>
-      </li>
-    ))
-  }
-</ul>
+<SiteLayout title="Blog">
+  <div class="flex grow flex-col">
+    <div class="mx-auto max-w-xl">
+      <p>Post archive:</p>
+      <ul>
+        {
+          posts.map((post) => (
+            <li>
+              <a href={`/blog/${post.data.slug}`}>{post.data.title}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</SiteLayout>

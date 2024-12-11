@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content'
+import SiteLayout from '../../layouts/site-layout.astro'
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog')
@@ -14,5 +15,8 @@ const { post } = Astro.props
 const { Content } = await render(post)
 ---
 
-<h1>{post.data.title}</h1>
-<Content />
+<SiteLayout title={post.data.title}>
+  <article>
+    <Content />
+  </article>
+</SiteLayout>
