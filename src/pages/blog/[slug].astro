@@ -1,6 +1,9 @@
 ---
 import { getCollection, render } from 'astro:content'
-import SiteLayout from '../../layouts/site-layout.astro'
+import SiteLayout from '~/layouts/site-layout.astro'
+import { Button } from '~/components/ui/button'
+import { ChevronLeft } from '~/components/ui/icons'
+import '~/styles/blog.css'
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog')
@@ -17,6 +20,15 @@ const { Content } = await render(post)
 
 <SiteLayout title={post.data.title}>
   <article>
-    <Content />
+    <div class="flex flex-row justify-between">
+      <a href="/blog">
+        <Button variant="ghost" size="icon">
+          <ChevronLeft />
+        </Button>
+      </a>
+    </div>
+    <content>
+      <Content />
+    </content>
   </article>
 </SiteLayout>

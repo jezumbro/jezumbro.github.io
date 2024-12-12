@@ -1,13 +1,13 @@
 ---
-import SiteLayout from '../../layouts/site-layout.astro'
+import SiteLayout from '~/layouts/site-layout.astro'
 import { getCollection } from 'astro:content'
 const posts = await getCollection('blog', ({ data }) => data.draft !== true)
 ---
 
 <SiteLayout title="Blog">
-  <div class="flex grow flex-col">
-    <div class="mx-auto max-w-xl">
-      <p>Post archive:</p>
+  <div class="flex max-w-2xl grow flex-col">
+    <div class="mx-auto">
+      <h1>Blog</h1>
       <ul>
         {
           posts.map((post) => (

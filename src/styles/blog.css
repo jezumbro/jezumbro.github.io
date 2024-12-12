@@ -1,0 +1,40 @@
+@tailwind base;
+@layer base {
+  article {
+    @apply mx-4 flex flex-col font-serif lowercase md:mx-10;
+    h1 {
+      @apply mb-4 mt-0 text-4xl font-bold;
+    }
+    content {
+      @apply container leading-relaxed md:mx-auto md:max-w-xl md:whitespace-pre-wrap md:text-pretty;
+
+      h1 {
+        @apply mb-4 mt-0 text-4xl font-bold;
+      }
+      h2 {
+        @apply mb-4 mt-0 text-3xl font-bold;
+      }
+      h3 {
+        @apply mb-4 mt-0 text-2xl font-bold;
+      }
+      h4 {
+        @apply mb-4 mt-0 text-xl font-bold;
+      }
+      h5 {
+        @apply mb-4 mt-0 text-base font-bold;
+      }
+      h6 {
+        @apply mb-4 mt-0 text-base font-bold;
+      }
+      p {
+        @apply mb-8 mt-0;
+      }
+      blockquote {
+        @apply my-2 border-l border-gray-300 pl-6 text-lg italic text-secondary-foreground;
+      }
+      a {
+        @apply text-blue-500 hover:text-blue-600;
+      }
+    }
+  }
+}
