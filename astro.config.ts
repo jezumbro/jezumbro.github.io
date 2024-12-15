@@ -11,11 +11,7 @@ export default defineConfig({
   integrations: [
     mdx(),
     react(),
-    sitemap({
-      filter: (page) => {
-        return !page.includes('blog')
-      },
-    }),
+    sitemap(),
     tailwind({
       applyBaseStyles: false,
     }),

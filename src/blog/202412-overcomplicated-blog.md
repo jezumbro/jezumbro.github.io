@@ -15,7 +15,7 @@ attempting a poc, and gaining the ability to write about some software findings.
 
 ## we all start somewhere
 
-> the first time we do anything, it wont be perfect - someone
+> the first time we do anything, it will not be perfect - someone
 
 i've always thought that I am not good enough to complete... well anything. I
 have always been fearful of failure when it comes to completing tasks or just
@@ -28,8 +28,10 @@ as it comes to iteration, the second time will be better than the first time. It
 provides a canvas to not start from scratch. This website was first written in
 pure react. It was a [Gatsbyjs](https://www.gatsbyjs.com) page to start, however
 it always felt bloated. React was super powerful, we had been building single
-page applications (spa) to manage a fuel supply chain and it was awesome how
-easy it was to stand up pages. but when it came to a staic content site, it felt
-like it was a sportscar trying to be a minivan. after doing a little research, I
-discovered [astro](https://astro.build) and instantly knew it was what would
-build this site.
+page applications (spa) to manage a fuel supply chain, and it was awesome how
+easy it was to stand up pages. but when it came to a static content site, it
+felt like it was a sports-car trying to be a minivan. after doing a little
+research, I discovered [astro](https://astro.build) and instantly knew it was
+what would build this site.
+
+##### to be continued...
