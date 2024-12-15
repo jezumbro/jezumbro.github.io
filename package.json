@@ -24,15 +24,13 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "scripts": {
-    "predeploy": "astro build",
-    "deploy": "gh-pages -d dist",
-    "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "commitlint": "commitlint --edit",
+    "dev": "astro dev",
     "format:check": "prettier --check .",
     "format::write": "prettier --write .",
-    "prepare": "husky",
-    "commitlint": "commitlint --edit"
+    "preview": "astro preview",
+    "prepare": "husky"
   },
   "eslintConfig": {
     "extends": []
@@ -55,7 +53,6 @@
     "@commitlint/config-conventional": "^19.6.0",
     "@trivago/prettier-plugin-sort-imports": "5.2",
     "eslint": "^7.32.0",
-    "gh-pages": "6.2",
     "husky": "^9.1.7",
     "prettier": "^3.4.2",
     "prettier-plugin-astro": "^0.14.1",
