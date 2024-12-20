@@ -1,9 +1,9 @@
 ---
 import { getCollection, render } from 'astro:content'
-import SiteLayout from '~/layouts/site-layout.astro'
-import { Button } from '~/components/ui/button'
-import { ChevronLeft } from '~/components/ui/icons'
-import '~/styles/blog.css'
+import SiteLayout from '../../layouts/site-layout.astro'
+import { Button } from '../../components/ui/button'
+import { ChevronLeft } from '../../components/ui/icons'
+import '../../styles/blog.css'
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog')
