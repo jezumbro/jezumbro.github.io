@@ -3,6 +3,7 @@ name: Deploy to GitHub Pages
 on:
   workflow_dispatch:
   schedule: [{ cron: '0 2 * * *' }] # Schedule to run the workflow every day at 0200
+  pull_request:
   push:
     branches:
       - main
@@ -19,7 +20,19 @@ jobs:
       - name: git-checkout
         uses: actions/checkout@v4
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: install
+        run: npm ci
+
+      - name: lint & style
+        run: npm run format:ci
+
       - name: notion-to-markdown
+        if: contains('ref/heads/main', github.ref)
         uses: jezumbro/github-action-notion@v1.0.2
         with:
           notion-token: ${{ secrets.NOTION_TOKEN }}
@@ -34,6 +47,7 @@ jobs:
 
   deploy:
     needs: build
+    if: contains('ref/heads/main', github.ref)
     runs-on: ubuntu-24.04
     environment:
       name: github-pages
