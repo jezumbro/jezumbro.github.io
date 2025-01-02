@@ -31,6 +31,9 @@ jobs:
       - name: lint & style
         run: npm run format:ci
 
+      - name: branch
+        run: echo "github.ref= ${{github.ref}}"
+
       - name: notion-to-markdown
         if: contains('main', github.ref)
         uses: jezumbro/github-action-notion@v1.0.2
