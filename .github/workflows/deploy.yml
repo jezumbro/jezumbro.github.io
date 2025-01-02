@@ -32,6 +32,7 @@ jobs:
         run: npm run format:ci
 
       - name: notion-to-markdown
+        if: contains('ref/heads/main', github.ref)
         uses: jezumbro/github-action-notion@v1.0.2
         with:
           notion-token: ${{ secrets.NOTION_TOKEN }}
