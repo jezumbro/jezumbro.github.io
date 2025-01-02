@@ -27,7 +27,7 @@
     "build": "astro build",
     "commitlint": "commitlint --edit",
     "dev": "astro dev",
-    "format:check": "npm run prettier && npm run lint",
+    "format:ci": "npm run prettier && npm run lint",
     "format": "prettier --write .",
     "prettier": "prettier --check .",
     "lint": "eslint .",
