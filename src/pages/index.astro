@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets'
+import AboutImage from '../images/about.jpg'
+import SiteLayout from '../layouts/site-layout.astro'
+---
+
+<SiteLayout title="about zeke zumbro">
+  <div class="h-full justify-center text-center align-middle lg:px-8">
+    <div>
+      <div>
+        <Image
+          src={AboutImage}
+          width="300"
+          decoding="auto"
+          alt="logo"
+          class="mx-auto rounded-md"
+          loading="eager"
+        />
+      </div>
+      <div class="pt-2 font-mono font-semibold text-muted-foreground">
+        dog-lover. Christ-follower. father.
+      </div>
+    </div>
+    <div class="justify space-y-4 pt-4">
+      <p>enneagram nine wing one, who is loves doing thing the "right" way</p>
+      <p class="mx-auto text-pretty lg:w-[600px]">
+        i am passionate about making processes, code, and life better. i
+        currently work at walmart. i love exploring software and technology from
+        unit test frameworks to 3d printers and home.
+      </p>
+    </div>
+  </div>
+</SiteLayout>

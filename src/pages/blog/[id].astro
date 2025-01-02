@@ -1,0 +1,36 @@
+---
+import { getCollection, render } from 'astro:content'
+import SiteLayout from '../../layouts/site-layout.astro'
+import { Button } from '../../components/ui/button'
+import { ChevronLeft } from '../../components/ui/icons'
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog')
+  return posts.map((post) => {
+    return {
+      params: { id: post.id },
+      props: { post },
+    }
+  })
+}
+
+const { post } = Astro.props
+const { Content } = await render(post)
+---
+
+<SiteLayout title={post.data.title}>
+  <article class="mx-4 flex flex-col font-serif md:mx-10">
+    <div class="flex flex-row justify-between">
+      <a href="/blog">
+        <Button variant="ghost" size="icon">
+          <ChevronLeft />
+        </Button>
+      </a>
+    </div>
+    <content
+      class="container prose prose-neutral leading-relaxed lg:prose-lg dark:prose-invert md:mx-auto md:max-w-xl md:text-justify"
+    >
+      <Content />
+    </content>
+  </article>
+</SiteLayout>

@@ -1,0 +1,41 @@
+name: Deploy to GitHub Pages
+
+on:
+  workflow_dispatch:
+  schedule: [{ cron: '0 2 * * *' }] # Schedule to run the workflow every day at 0200
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: git-checkout
+        uses: actions/checkout@v4
+
+      - name: notion-to-markdown
+        uses: jezumbro/github-action-notion@v1.0.2
+        with:
+          notion-token: ${{ secrets.NOTION_TOKEN }}
+          root-page-id: ${{ secrets.NOTION_ROOT_PAGE_ID }}
+          cleanup-before: true
+
+      - name: astro-build
+        uses: withastro/action@v3
+        with:
+          path: '.'
+          node-version: 20
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,5 @@
+# Ignore artifacts:
+.astro
+dist
+build
+coverage

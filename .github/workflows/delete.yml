@@ -1,0 +1,18 @@
+name: Remove Expired Workflow Runs
+on:
+  schedule: [{ cron: '30 1 * * *' }] # Schedule to run the workflow every day at 0130
+  workflow_dispatch:
+
+jobs:
+  clean:
+    name: Delete Expired Workflow Runs
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout Action Code
+        uses: actions/checkout@v2
+
+      - name: Run Delete Script
+        run: sh ./delete.sh jezumbro jezumbro.github.io
+        working-directory: .github/actions
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
