@@ -4,7 +4,7 @@
   "homepage": "https://jezumbro.github.io/",
   "type": "module",
   "dependencies": {
-    "@astrojs/mdx": "^4.0.2",
+    "@astrojs/mdx": "^4.0.3",
     "@astrojs/react": "^4.0.0",
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.3",
