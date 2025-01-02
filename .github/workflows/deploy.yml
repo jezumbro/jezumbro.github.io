@@ -3,6 +3,9 @@ name: Deploy to GitHub Pages
 on:
   workflow_dispatch:
   schedule: [{ cron: '0 2 * * *' }] # Schedule to run the workflow every day at 0200
+  push:
+    branches:
+      - main
 
 permissions:
   contents: read
