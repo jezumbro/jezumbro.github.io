@@ -1,0 +1,22 @@
+name: Approve Dependabot PRs
+
+on:
+  check_suite:
+    types:
+      - completed
+
+jobs:
+  approve-dependabot:
+    if: ${{ github.event.check_suite.conclusion == 'success' }}
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Approve Dependabot PR
+        uses: hmarr/auto-approve-action@v3
+        with:
+          github-token: ${{ secrets.GH_TOKEN }}
+        env:
+          PR_AUTHOR: dependabot[bot]
