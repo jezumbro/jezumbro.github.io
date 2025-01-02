@@ -35,7 +35,7 @@ jobs:
         run: echo "github.ref= ${{github.ref}}"
 
       - name: notion-to-markdown
-        if: contains('main', github.ref)
+        if: contains(github.ref, 'heads/main' )
         uses: jezumbro/github-action-notion@v1.0.2
         with:
           notion-token: ${{ secrets.NOTION_TOKEN }}
@@ -50,7 +50,7 @@ jobs:
 
   deploy:
     needs: build
-    if: contains('main', github.ref)
+    if: contains(github.ref, 'heads/main')
     runs-on: ubuntu-24.04
     environment:
       name: github-pages
