@@ -36,7 +36,7 @@ jobs:
 
       - name: notion-to-markdown
         if: contains(github.ref, 'heads/main' )
-        uses: jezumbro/github-action-notion@v1.0.2
+        uses: jezumbro/github-action-notion@v1.0.4
         with:
           notion-token: ${{ secrets.NOTION_TOKEN }}
           root-page-id: ${{ secrets.NOTION_ROOT_PAGE_ID }}
