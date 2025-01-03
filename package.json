@@ -16,7 +16,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.468.0",
-    "posthog-js": "^1.76.0",
+    "posthog-js": "^1.203.2",
     "react": "^18.2.0",
     "remark-toc": "^9.0.0",
     "tailwind-merge": "^2.6.0",
