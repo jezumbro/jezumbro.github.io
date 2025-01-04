@@ -23,7 +23,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version-file: .node-version
 
       - name: install
         run: npm ci
@@ -44,9 +44,6 @@ jobs:
 
       - name: astro-build
         uses: withastro/action@v3
-        with:
-          path: '.'
-          node-version: 20
 
   deploy:
     needs: build
