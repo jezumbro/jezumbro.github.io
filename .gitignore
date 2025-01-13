@@ -26,4 +26,6 @@ yarn-error.log*
 .cache
 .astro
 
-_posts
+# pull these via ci
+src/content/post
+src/content/note

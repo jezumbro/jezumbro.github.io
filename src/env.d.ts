@@ -1,6 +1,5 @@
-interface ImportMetaEnv {
-  readonly POSTHOG_TOKEN: String
-}
-interface ImportMeta {
-  readonly env: ImportMetaEnv
+declare module '@pagefind/default-ui' {
+  declare class PagefindUI {
+    constructor(arg: unknown)
+  }
 }
