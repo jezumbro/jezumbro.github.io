@@ -26,10 +26,7 @@ const post = defineCollection({
         .array(z.string())
         .default([])
         .transform(removeDuplicatesAndLowerCase),
-      publishDate: z
-        .string()
-        .or(z.date())
-        .transform((val) => new Date(val)),
+      publishDate: z.date(),
       updatedDate: z
         .string()
         .optional()
