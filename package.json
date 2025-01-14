@@ -12,7 +12,7 @@
     "@radix-ui/react-dropdown-menu": "^2.1.2",
     "@radix-ui/react-separator": "^1.1.1",
     "@radix-ui/react-slot": "^1.1.1",
-    "astro": "^5.1.2",
+    "astro": "^5.1.6",
     "astro-expressive-code": "^0.39.0",
     "astro-icon": "^1.1.5",
     "astro-robots-txt": "^1.0.0",
