@@ -1,5 +1,6 @@
 import type { SiteConfig } from '@/types'
 import type { AstroExpressiveCodeOptions } from 'astro-expressive-code'
+import { getAllPosts } from '@/data/post.ts'
 
 export const siteConfig: SiteConfig = {
   // Used as both a meta property (src/components/BaseHead.astro L:31 + L:49) & the generated satori png (src/pages/og-image/[slug].png.ts)
@@ -24,15 +25,15 @@ export const siteConfig: SiteConfig = {
 }
 
 // Used to generate links in both the Header & Footer.
-export const menuLinks: { path: string; title: string }[] = [
+export const menuLinks: { path: string; title: string; hidden?: boolean }[] = [
   {
     path: '/',
     title: 'Home',
   },
-  {
-    path: '/about/',
-    title: 'About',
-  },
+  // {
+  //   path: '/about/',
+  //   title: 'About',
+  // },
   {
     path: '/posts/',
     title: 'Blog',
@@ -40,8 +41,9 @@ export const menuLinks: { path: string; title: string }[] = [
   {
     path: '/notes/',
     title: 'Notes',
+    hidden: true,
   },
-]
+].filter((x) => !x.hidden)
 
 // https://expressive-code.com/reference/configuration/
 export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
