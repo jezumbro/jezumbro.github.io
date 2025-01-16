@@ -66,8 +66,8 @@ export default defineConfig({
         },
       ],
       start_url: '/',
-      background_color: '#1d1f21',
-      theme_color: '#2bbc8a',
+      background_color: '#171717', // tailwind neutral.900
+      theme_color: '#ef4444', //tailwind red.500
       display: 'standalone',
       config: {
         insertFaviconLinks: false,
