@@ -33,14 +33,6 @@ jobs:
       - name: lint & style
         run: npm run format:ci
 
-      - name: branch
-        run: echo "github.ref= ${{github.ref}}"
-
-      - name: 'Create env file'
-        run: |
-          touch .env
-          echo PROD=true >> .env
-
       - name: notion-to-markdown
         if: contains(github.ref, 'heads/main' )
         uses: jezumbro/github-action-notion@v1.1.0
