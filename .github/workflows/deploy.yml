@@ -6,7 +6,7 @@ on:
   pull_request:
   push:
     branches:
-      - main
+      - production
 
 permissions:
   contents: read
@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: git-checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -34,7 +34,7 @@ jobs:
         run: npm run format:ci
 
       - name: notion-to-markdown
-        if: contains(github.ref, 'heads/main' )
+        if: contains(github.ref, 'heads/production' )
         uses: jezumbro/github-action-notion@v1.1.1
         with:
           notion-token: ${{ secrets.NOTION_TOKEN }}
@@ -47,7 +47,7 @@ jobs:
 
   deploy:
     needs: build
-    if: contains(github.ref, 'heads/main')
+    if: contains(github.ref, 'heads/production')
     runs-on: ubuntu-24.04
     environment:
       name: github-pages
