@@ -6,7 +6,7 @@ on:
   pull_request:
   push:
     branches:
-      - production
+      - gh-pages
 
 permissions:
   contents: read
@@ -34,7 +34,7 @@ jobs:
         run: npm run format:ci
 
       - name: notion-to-markdown
-        if: contains(github.ref, 'heads/production' )
+        if: contains(github.ref, 'heads/gh-pages' )
         uses: jezumbro/github-action-notion@v1.1.1
         with:
           notion-token: ${{ secrets.NOTION_TOKEN }}
@@ -47,7 +47,7 @@ jobs:
 
   deploy:
     needs: build
-    if: contains(github.ref, 'heads/production')
+    if: contains(github.ref, 'heads/gh-pages')
     runs-on: ubuntu-24.04
     environment:
       name: github-pages
