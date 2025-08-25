@@ -1,4 +1,3 @@
-import type { AdmonitionType } from '@/types'
 import { type Properties, h as _h } from 'hastscript'
 import type { Node, Paragraph as P, Parent, PhrasingContent, Root } from 'mdast'
 import type {
@@ -11,6 +10,8 @@ import { toMarkdown } from 'mdast-util-to-markdown'
 import { toString as mdastToString } from 'mdast-util-to-string'
 import type { Plugin } from 'unified'
 import { visit } from 'unist-util-visit'
+
+import type { AdmonitionType } from '@/types'
 
 // Supported admonition types
 const Admonitions = new Set<AdmonitionType>([
