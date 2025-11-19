@@ -4,26 +4,80 @@ import { menuLinks, siteConfig } from '@/site.config'
 const year = new Date().getFullYear()
 ---
 
-<footer
-  class="mt-auto flex w-full flex-col items-center justify-center gap-y-2 pb-4 pt-20 text-center align-top font-semibold text-gray-600 dark:text-gray-400 sm:flex-row sm:justify-between sm:text-xs"
->
-  <div class="me-0 sm:me-4">
-    &copy; {siteConfig.author}
-    {year}.<span class="inline-block">&nbsp;🚀&nbsp;Astro Cactus</span>
-  </div>
-  <nav
-    aria-label="More on this site"
-    class="flex gap-x-2 sm:gap-x-0 sm:divide-x sm:divide-gray-500"
-  >
-    {
-      menuLinks.map((link) => (
-        <a
-          class="px-4 py-2 sm:py-0 sm:hover:text-textColor sm:hover:underline"
-          href={link.path}
+<footer class="mt-auto border-t border-border/40 pb-8 pt-12">
+  <div class="mx-auto max-w-5xl">
+    <div
+      class="mb-8 flex flex-col items-center justify-between gap-6 sm:flex-row"
+    >
+      <div class="flex items-center gap-3">
+        <div
+          class="flex h-10 w-10 items-center justify-center rounded-lg bg-accent"
         >
-          {link.title}
+          <svg
+            class="h-5 w-5 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M13 10V3L4 14h7v7l9-11h-7z"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"></path>
+          </svg>
+        </div>
+        <div>
+          <p class="text-sm font-semibold text-accent-2">
+            {siteConfig.author}
+          </p>
+          <p class="text-xs text-muted-foreground">Building in public</p>
+        </div>
+      </div>
+
+      <nav
+        aria-label="Footer navigation"
+        class="flex flex-wrap justify-center gap-6"
+      >
+        {
+          menuLinks.map((link) => (
+            <a
+              class="text-sm font-medium text-muted-foreground transition-colors hover:text-link"
+              href={link.path}
+            >
+              {link.title}
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+
+    <div
+      class="border-t border-border/40 pt-6 text-center text-sm text-muted-foreground"
+    >
+      <p>
+        &copy; {year}
+        {siteConfig.author}. Built with
+        <a
+          class="inline-flex items-center gap-1 font-medium text-link transition-colors hover:text-accent"
+          href="https://astro.build"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Astro
+          <svg
+            class="h-3 w-3"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"></path>
+          </svg>
         </a>
-      ))
-    }
-  </nav>
+      </p>
+    </div>
+  </div>
 </footer>

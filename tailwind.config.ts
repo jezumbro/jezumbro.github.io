@@ -44,11 +44,40 @@ const config: Config = {
         link: 'hsl(var(--theme-link) / <alpha-value>)',
         quote: 'hsl(var(--theme-quote) / <alpha-value>)',
         textColor: 'hsl(var(--theme-text) / <alpha-value>)',
+        border: 'hsl(var(--theme-border) / <alpha-value>)',
+        muted: 'hsl(var(--theme-muted) / <alpha-value>)',
+        'muted-foreground':
+          'hsl(var(--theme-muted-foreground) / <alpha-value>)',
       },
       fontFamily: {
         // Add any custom fonts here
-        sans: [...fontFamily.sans],
+        sans: [
+          'ui-sans-serif',
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"Segoe UI"',
+          'Roboto',
+          '"Helvetica Neue"',
+          'Arial',
+          'sans-serif',
+          ...fontFamily.sans,
+        ],
         serif: [...fontFamily.serif],
+      },
+      animation: {
+        'fade-in': 'fade-in 0.5s ease-out',
+        'slide-up': 'slide-up 0.5s ease-out',
+      },
+      keyframes: {
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        'slide-up': {
+          '0%': { transform: 'translateY(20px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
       },
       transitionProperty: {
         height: 'height',

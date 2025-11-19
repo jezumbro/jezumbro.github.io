@@ -6,22 +6,37 @@
   :root,
   :root[data-theme='light'] {
     color-scheme: light;
-    /* https://tailwindcss.com/docs/customizing-colors#using-css-variables */
-    --theme-bg: 0deg 0% 98%;
-    --theme-link: 172deg 18% 41%;
-    --theme-text: 203deg 11% 15%;
-    --theme-accent: 351deg 66% 48%;
-    --theme-accent-2: 0deg 0% 7%;
-    --theme-quote: 351deg 66% 48%;
+    /* Claude-inspired light theme with purple/orange accents */
+    --theme-bg: 0deg 0% 100%;
+    --theme-text: 240deg 10% 10%;
+    --theme-accent: 260deg 85% 65%; /* Purple */
+    --theme-accent-2: 240deg 10% 10%;
+    --theme-link: 25deg 95% 53%; /* Orange */
+    --theme-quote: 260deg 70% 50%;
+    --theme-border: 240deg 10% 90%;
+    --theme-muted: 240deg 10% 96%;
+    --theme-muted-foreground: 240deg 5% 45%;
   }
 
   :root[data-theme='dark'] {
     color-scheme: dark;
-    --theme-bg: 210deg 6% 12%;
-    --theme-link: 330deg 49% 67%;
-    --theme-text: 220deg 3% 79%;
-    --theme-accent: 159deg 64% 45%;
-    --theme-accent-2: 0deg 0% 93%;
-    --theme-quote: 102deg 100% 86%;
+    /* Claude-inspired dark theme */
+    --theme-bg: 240deg 10% 8%;
+    --theme-text: 240deg 10% 95%;
+    --theme-accent: 270deg 80% 70%; /* Brighter purple for dark mode */
+    --theme-accent-2: 240deg 10% 95%;
+    --theme-link: 25deg 95% 60%; /* Brighter orange for dark mode */
+    --theme-quote: 270deg 70% 65%;
+    --theme-border: 240deg 10% 20%;
+    --theme-muted: 240deg 10% 15%;
+    --theme-muted-foreground: 240deg 5% 65%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-bgColor text-textColor transition-colors duration-300;
   }
 }

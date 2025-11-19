@@ -21,17 +21,56 @@ const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES)
 ---
 
 <PageLayout meta={{ title: 'Home' }}>
-  <section>
-    <h1 class="title mb-6">Hello World!</h1>
-    <p class="mb-4">Hi. Welcome. This site has been a long time coming.</p>
-    <SocialList />
+  <section class="relative animate-fade-in">
+    <div class="space-y-6 py-12">
+      <div
+        class="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5"
+      >
+        <span class="flex h-2 w-2 rounded-full bg-accent"></span>
+        <span class="text-sm font-medium text-muted-foreground"
+          >Welcome to my corner of the internet</span
+        >
+      </div>
+      <h1
+        class="animate-slide-up text-5xl font-bold leading-tight text-accent-2 sm:text-6xl lg:text-7xl"
+      >
+        Hello World!
+      </h1>
+      <p class="max-w-2xl text-xl text-muted-foreground sm:text-2xl">
+        Hi. Welcome. This site has been a long time coming. I write about
+        technology, design, and the occasional thought that crosses my mind.
+      </p>
+      <SocialList />
+    </div>
   </section>
-  <section aria-label="Blog post list" class="mt-16">
-    <h2 class="title mb-6 text-xl text-accent"><a href="/posts/">Posts</a></h2>
-    <ul class="space-y-4" role="list">
+  <section aria-label="Blog post list" class="mt-24">
+    <div class="mb-8 flex items-center justify-between">
+      <h2 class="text-3xl font-bold text-accent-2">
+        <a href="/posts/" class="hover:opacity-80">Latest Posts</a>
+      </h2>
+      <a
+        href="/posts/"
+        class="group flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-link"
+      >
+        View all
+        <svg
+          class="h-4 w-4 transition-transform group-hover:translate-x-1"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M13 7l5 5m0 0l-5 5m5-5H6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"></path>
+        </svg>
+      </a>
+    </div>
+    <ul class="space-y-6" role="list">
       {
         allPostsByDate.map((p) => (
-          <li class="grid gap-2 sm:grid-cols-[auto_1fr]">
+          <li class="group rounded-xl border border-border bg-muted/30 p-6 transition-all hover:border-accent/50 hover:shadow-lg">
             <PostPreview post={p} />
           </li>
         ))
@@ -40,13 +79,36 @@ const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES)
   </section>
   {
     latestNotes.length > 0 && (
-      <section class="mt-16">
-        <h2 class="title mb-6 text-xl text-accent">
-          <a href="/notes/">Notes</a>
-        </h2>
+      <section class="mt-24">
+        <div class="mb-8 flex items-center justify-between">
+          <h2 class="text-3xl font-bold text-accent-2">
+            <a href="/notes/" class="hover:opacity-80">
+              Quick Notes
+            </a>
+          </h2>
+          <a
+            href="/notes/"
+            class="group flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-link"
+          >
+            View all
+            <svg
+              class="h-4 w-4 transition-transform group-hover:translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13 7l5 5m0 0l-5 5m5-5H6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              />
+            </svg>
+          </a>
+        </div>
         <ul class="space-y-4" role="list">
           {latestNotes.map((note) => (
-            <li>
+            <li class="rounded-xl border border-border bg-muted/30 p-6 transition-all hover:border-accent/50 hover:shadow-lg">
               <Note note={note} as="h3" isPreview />
             </li>
           ))}
