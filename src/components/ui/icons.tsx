@@ -4,6 +4,7 @@ export {
   Sun as SunIcon,
   ChevronLeft,
   ChevronRight,
+  ChevronUp,
   Menu,
   X,
   Search as SearchIcon,

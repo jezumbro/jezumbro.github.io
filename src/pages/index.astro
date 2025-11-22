@@ -1,5 +1,6 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content'
+import { ArrowRight } from '@/components/ui/icons'
 import SocialList from '@/components/SocialList.astro'
 import PostPreview from '@/components/blog/PostPreview.astro'
 import Note from '@/components/note/Note.astro'
@@ -53,18 +54,9 @@ const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES)
         class="group flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-link"
       >
         View all
-        <svg
-          class="h-4 w-4 transition-transform group-hover:translate-x-1"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M13 7l5 5m0 0l-5 5m5-5H6"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"></path>
-        </svg>
+        <ArrowRight
+          className="h-4 w-4 transition-transform group-hover:translate-x-1"
+        />
       </a>
     </div>
     <ul class="space-y-6" role="list">
@@ -91,19 +83,7 @@ const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES)
             class="group flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-link"
           >
             View all
-            <svg
-              class="h-4 w-4 transition-transform group-hover:translate-x-1"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M13 7l5 5m0 0l-5 5m5-5H6"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-              />
-            </svg>
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </a>
         </div>
         <ul class="space-y-4" role="list">
