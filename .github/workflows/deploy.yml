@@ -39,7 +39,7 @@ jobs:
           cleanup-before: true
 
       - name: astro-build
-        uses: withastro/action@v4
+        uses: withastro/action@v5
 
   deploy:
     needs: build
