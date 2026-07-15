@@ -9,11 +9,11 @@ This is an Astro-based personal website and blog built with TypeScript, React,
 and Tailwind CSS. The site features:
 
 - Static blog posts with MDX support sourced from Notion
-- Notes collection for shorter content
-- Theme switching (light/dark mode)
+- Static Misc page for links to other projects/writing (`src/pages/misc.astro`)
+- Light/dark mode follows the OS-level `prefers-color-scheme` setting (no manual
+  toggle)
 - Webmentions integration
 - RSS feeds and sitemap generation
-- Search functionality with Pagefind
 
 ## Development Commands
 
@@ -38,10 +38,6 @@ Content is managed through Astro's content collections system with loaders:
   - Tags are automatically deduplicated and lowercased
   - Content is fetched from Notion during GitHub Actions build via
     `jezumbro/github-action-notion`
-- **Notes** (`src/content/note/`): Shorter form content with ISO 8601 datetime
-  format
-  - Schema: title (max 60 chars), optional description, publishDate with
-    timezone support
 
 Content schemas are defined in `src/content.config.ts` using Zod validation with
 the glob loader.
@@ -51,7 +47,7 @@ the glob loader.
 - `src/site.config.ts`: Site metadata (author, title, description, language, og
   locale), menu links, and Expressive Code theme configuration
   - Configures dual themes: 'dracula' (dark) and 'github-light' (light)
-  - Theme switching uses `[data-theme='<type>']` CSS selectors
+  - Theme switching follows `prefers-color-scheme` (no manual toggle)
 - `astro.config.ts`: Main Astro configuration
   - Integrations: Expressive Code, Icon, Tailwind, React, Sitemap, MDX,
     RobotsTxt, Webmanifest
@@ -80,7 +76,7 @@ Located in `src/plugins/`:
 
 - `src/components/`: Astro and React components
   - `blog/`: Blog-specific components (TOC, Masthead, PostPreview, webmentions)
-  - `layout/`: Header, Footer
+  - `layout/`: Sidebar, Footer
   - `ui/`: Reusable UI components built with Radix UI (button, dropdown-menu,
     separator, icons)
   - `webmentions/`: Social interaction components (Comments, Likes)
@@ -91,23 +87,17 @@ Located in `src/plugins/`:
   - Dynamic routes for posts (`[...slug].astro`), pagination
     (`[...page].astro`), and tags
   - OG image generation at `og-image/[...slug].png.ts` using Satori
-  - RSS feeds for posts and notes
+  - RSS feed for posts
 
 ### Styling
 
 - Tailwind CSS with custom configuration
 - Global styles in `src/styles/global.css`
 - Component-specific styling using Tailwind classes
-- Theme switching via `data-theme` attribute
+- Theme switching follows the OS `prefers-color-scheme` setting; CSS variables
+  for both themes live in `src/styles/global.css`
 - Radix UI components styled with class-variance-authority (CVA)
 - Tailwind plugins: @tailwindcss/typography, tailwindcss-animate
-
-### Search
-
-- Pagefind provides client-side search without external dependencies
-- Search index is built post-build (after `astro build`)
-- Search UI is implemented in `src/components/Search.astro`
-- Content marked for indexing using `data-pagefind-body` attributes in layouts
 
 ### Favicon Generation
 

@@ -35,8 +35,17 @@ const socialImageURL = new URL(
 <meta content={description} name="description" />
 <meta content={siteConfig.author} name="author" />
 
-{/* Theme Colour */}
-<meta content="" name="theme-color" />
+{/* Theme Colour: must match --theme-bg in src/styles/global.css */}
+<meta
+  content="hsl(0deg 0% 100%)"
+  media="(prefers-color-scheme: light)"
+  name="theme-color"
+/>
+<meta
+  content="hsl(220deg 13% 9%)"
+  media="(prefers-color-scheme: dark)"
+  name="theme-color"
+/>
 
 {/* Open Graph / Facebook */}
 <meta content={articleDate ? 'article' : 'website'} property="og:type" />

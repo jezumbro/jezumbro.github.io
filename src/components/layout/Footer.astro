@@ -1,62 +1,13 @@
 ---
-import { ExternalLink } from '@/components/ui/icons'
-import { menuLinks, siteConfig } from '@/site.config'
+import SocialList from '@/components/SocialList.astro'
+import { siteConfig } from '@/site.config'
 
 const year = new Date().getFullYear()
 ---
 
-<footer class="mt-auto border-t border-border/40 pb-8 pt-12">
-  <div class="mx-auto max-w-5xl">
-    <div
-      class="mb-8 flex flex-col items-center justify-between gap-6 sm:flex-row"
-    >
-      <div class="flex items-center gap-3">
-        <div
-          class="flex h-10 w-10 items-center justify-center rounded-lg bg-accent text-lg font-bold text-white"
-        >
-          Z
-        </div>
-        <div>
-          <p class="text-sm font-semibold text-accent-2">
-            {siteConfig.author}
-          </p>
-          <p class="text-xs text-muted-foreground">Building in public</p>
-        </div>
-      </div>
-
-      <nav
-        aria-label="Footer navigation"
-        class="flex flex-wrap justify-center gap-6"
-      >
-        {
-          menuLinks.map((link) => (
-            <a
-              class="text-sm font-medium text-muted-foreground transition-colors hover:text-link"
-              href={link.path}
-            >
-              {link.title}
-            </a>
-          ))
-        }
-      </nav>
-    </div>
-
-    <div
-      class="border-t border-border/40 pt-6 text-center text-sm text-muted-foreground"
-    >
-      <p>
-        &copy; {year}
-        {siteConfig.author}. Built with
-        <a
-          class="inline-flex items-center gap-1 font-medium text-link transition-colors hover:text-accent"
-          href="https://astro.build"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          Astro
-          <ExternalLink className="h-3 w-3" />
-        </a>
-      </p>
-    </div>
-  </div>
+<footer
+  class="mt-auto flex items-center justify-between pb-8 pt-16 text-sm text-muted-foreground"
+>
+  <div>&copy; {year} {siteConfig.author}.</div>
+  <SocialList />
 </footer>

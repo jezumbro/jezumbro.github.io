@@ -4,7 +4,7 @@ import type { SiteConfig } from '@/types'
 
 export const siteConfig: SiteConfig = {
   // Used as both a meta property (src/components/BaseHead.astro L:31 + L:49) & the generated satori png (src/pages/og-image/[slug].png.ts)
-  author: 'John Zumbro',
+  author: 'Zeke Zumbro',
   // Date.prototype.toLocaleDateString() parameters, found in src/utils/date.ts.
   date: {
     locale: 'en-US',
@@ -25,23 +25,19 @@ export const siteConfig: SiteConfig = {
   title: 'A Blog',
 }
 
-// Used to generate links in both the Header & Footer.
+// Used to generate links in the Sidebar.
 export const menuLinks: { path: string; title: string; hidden?: boolean }[] = [
   {
     path: '/',
-    title: 'Home',
+    title: 'About',
   },
-  // {
-  //   path: '/about/',
-  //   title: 'About',
-  // },
   {
     path: '/posts/',
-    title: 'Blog',
+    title: 'Writing',
   },
   {
-    path: '/notes/',
-    title: 'Notes',
+    path: '/misc/',
+    title: 'Misc',
     hidden: true,
   },
 ].filter((x) => !x.hidden)
@@ -60,20 +56,10 @@ export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
     },
     uiLineHeight: 'inherit',
   },
-  themeCssSelector(theme, { styleVariants }) {
-    // If one dark and one light theme are available
-    // generate theme CSS selectors compatible with cactus-theme dark mode switch
-    if (styleVariants.length >= 2) {
-      const baseTheme = styleVariants[0]?.theme
-      const altTheme = styleVariants.find(
-        (v) => v.theme.type !== baseTheme?.type
-      )?.theme
-      if (theme === baseTheme || theme === altTheme)
-        return `[data-theme='${theme.type}']`
-    }
-    // return default selector
-    return `[data-theme="${theme.name}"]`
-  },
+  // No data-theme attribute is ever set (theme follows prefers-color-scheme only),
+  // so skip the attribute-selector output and rely on Expressive Code's
+  // useDarkModeMediaQuery default, which applies for one dark + one light theme.
+  themeCssSelector: false,
   // One dark, one light theme => https://expressive-code.com/guides/themes/#available-themes
   themes: ['dracula', 'github-light'],
   useThemedScrollbars: false,

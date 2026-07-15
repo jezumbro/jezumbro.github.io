@@ -3,33 +3,33 @@
 @tailwind utilities;
 
 @layer base {
-  :root,
-  :root[data-theme='light'] {
-    color-scheme: light;
-    /* Claude-inspired light theme with purple/orange accents */
+  :root {
+    color-scheme: light dark;
+    /* Near-monochrome theme, single muted accent for links/active-nav */
     --theme-bg: 0deg 0% 100%;
-    --theme-text: 240deg 10% 10%;
-    --theme-accent: 260deg 85% 65%; /* Purple */
-    --theme-accent-2: 240deg 10% 10%;
-    --theme-link: 25deg 95% 53%; /* Orange */
-    --theme-quote: 260deg 70% 50%;
-    --theme-border: 240deg 10% 90%;
-    --theme-muted: 240deg 10% 96%;
-    --theme-muted-foreground: 240deg 5% 45%;
+    --theme-text: 220deg 9% 20%;
+    --theme-accent: 217deg 91% 45%;
+    --theme-accent-2: 220deg 9% 12%;
+    --theme-link: 217deg 91% 45%;
+    --theme-quote: 220deg 9% 35%;
+    --theme-border: 220deg 13% 91%;
+    --theme-muted: 220deg 14% 96%;
+    --theme-muted-foreground: 220deg 9% 46%;
   }
 
-  :root[data-theme='dark'] {
-    color-scheme: dark;
-    /* Claude-inspired dark theme */
-    --theme-bg: 240deg 10% 8%;
-    --theme-text: 240deg 10% 95%;
-    --theme-accent: 270deg 80% 70%; /* Brighter purple for dark mode */
-    --theme-accent-2: 240deg 10% 95%;
-    --theme-link: 25deg 95% 60%; /* Brighter orange for dark mode */
-    --theme-quote: 270deg 70% 65%;
-    --theme-border: 240deg 10% 20%;
-    --theme-muted: 240deg 10% 15%;
-    --theme-muted-foreground: 240deg 5% 65%;
+  @media (prefers-color-scheme: dark) {
+    :root {
+      /* Near-monochrome theme, single muted accent for links/active-nav */
+      --theme-bg: 220deg 13% 9%;
+      --theme-text: 220deg 9% 92%;
+      --theme-accent: 217deg 91% 68%;
+      --theme-accent-2: 220deg 9% 98%;
+      --theme-link: 217deg 91% 68%;
+      --theme-quote: 220deg 9% 65%;
+      --theme-border: 220deg 13% 22%;
+      --theme-muted: 220deg 13% 15%;
+      --theme-muted-foreground: 220deg 9% 65%;
+    }
   }
 
   * {

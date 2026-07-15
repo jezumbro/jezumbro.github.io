@@ -1,25 +1,2 @@
 // Export lucide-react icons with consistent naming
-export {
-  Moon as MoonIcon,
-  Sun as SunIcon,
-  ChevronLeft,
-  ChevronRight,
-  ChevronUp,
-  Menu,
-  X,
-  Search as SearchIcon,
-  ExternalLink,
-  Calendar,
-  Clock,
-  Tag,
-  ArrowRight,
-  Home,
-  BookOpen,
-  FileText,
-  Github,
-  Twitter,
-  Linkedin,
-  Mail,
-  Rss,
-  Sparkles,
-} from 'lucide-react'
+export { ChevronUp } from 'lucide-react'
