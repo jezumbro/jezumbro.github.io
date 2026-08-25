@@ -1,13 +1,7 @@
----
-import { menuLinks } from '@/site.config'
-
-const currentPath = Astro.url.pathname
----
-
 <aside class="mb-8 md:mb-0 md:w-[160px] md:shrink-0">
   <div class="inline md:sticky md:top-20">
     <a
-      aria-current={currentPath === '/' ? 'page' : false}
+      aria-current="page"
       class="inline-flex items-center gap-2 font-sans text-lg font-black uppercase tracking-tight text-accent-2 transition-opacity hover:opacity-70"
       href="/"
     >
@@ -17,36 +11,5 @@ const currentPath = Astro.url.pathname
         ZZ
       </span>
     </a>
-    <nav
-      aria-label="Main menu"
-      class="mt-6 flex flex-row gap-5 overflow-x-auto md:mt-10 md:flex-col md:gap-1 md:overflow-visible"
-    >
-      {
-        menuLinks.map((link) => {
-          const isActive = currentPath === link.path
-          return (
-            <a
-              aria-current={isActive ? 'page' : false}
-              class:list={[
-                'group flex items-center gap-2 whitespace-nowrap py-1 font-sans text-sm transition-opacity',
-                isActive
-                  ? 'text-accent-2'
-                  : 'text-muted-foreground hover:opacity-70',
-              ]}
-              data-astro-prefetch
-              href={link.path}
-            >
-              <span
-                class:list={[
-                  'h-1 w-1 shrink-0 rounded-full bg-accent transition-transform',
-                  isActive ? 'scale-100' : 'scale-0',
-                ]}
-              />
-              {link.title}
-            </a>
-          )
-        })
-      }
-    </nav>
   </div>
 </aside>

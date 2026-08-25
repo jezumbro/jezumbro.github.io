@@ -1,42 +1,22 @@
-import expressiveCode from 'astro-expressive-code'
 import icon from 'astro-icon'
 import robotsTxt from 'astro-robots-txt'
 import webmanifest from 'astro-webmanifest'
-import fs from 'node:fs'
-// Rehype plugins
-import rehypeExternalLinks from 'rehype-external-links'
-import rehypeUnwrapImages from 'rehype-unwrap-images'
-// Remark plugins
-import remarkDirective from 'remark-directive'
 
-import mdx from '@astrojs/mdx'
-import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 
-import { defineConfig, envField } from 'astro/config'
+import { defineConfig } from 'astro/config'
 
-/* Handle ::: directives as nodes */
-import { remarkAdmonitions } from './src/plugins/remark-admonitions.ts'
-/* Add admonitions */
-import { remarkReadingTime } from './src/plugins/remark-reading-time'
-import { expressiveCodeOptions } from './src/site.config'
 import { siteConfig } from './src/site.config'
 
 export default defineConfig({
-  image: {
-    domains: ['webmention.io'],
-  },
   integrations: [
-    expressiveCode(expressiveCodeOptions),
     icon(),
     tailwind({
       applyBaseStyles: false,
       nesting: true,
     }),
-    react(),
     sitemap(),
-    mdx(),
     robotsTxt(),
     webmanifest({
       // See: https://github.com/alextim/astro-lib/blob/main/packages/astro-webmanifest/README.md
@@ -79,67 +59,9 @@ export default defineConfig({
       },
     }),
   ],
-  markdown: {
-    rehypePlugins: [
-      [
-        rehypeExternalLinks,
-        {
-          rel: ['nofollow, noreferrer'],
-          target: '_blank',
-        },
-      ],
-      rehypeUnwrapImages,
-    ],
-    remarkPlugins: [remarkReadingTime, remarkDirective, remarkAdmonitions],
-    remarkRehype: {
-      footnoteLabelProperties: {
-        className: [''],
-      },
-    },
-  },
   // https://docs.astro.build/en/guides/prefetch/
   prefetch: true,
   // ! Please remember to replace the following site property with your own domain
   site: 'https://jezumbro.github.com',
-  vite: {
-    optimizeDeps: {
-      exclude: ['@resvg/resvg-js'],
-    },
-    plugins: [rawFonts(['.ttf', '.woff'])],
-  },
-  env: {
-    schema: {
-      WEBMENTION_API_KEY: envField.string({
-        context: 'server',
-        access: 'secret',
-        optional: true,
-      }),
-      WEBMENTION_URL: envField.string({
-        context: 'client',
-        access: 'public',
-        optional: true,
-      }),
-      WEBMENTION_PINGBACK: envField.string({
-        context: 'client',
-        access: 'public',
-        optional: true,
-      }),
-    },
-  },
   server: { port: 3000 },
 })
-function rawFonts(ext: string[]) {
-  return {
-    name: 'vite-plugin-raw-fonts',
-    // @ts-expect-error:next-line
-    transform(_, id) {
-      if (ext.some((e) => id.endsWith(e))) {
-        const buffer = fs.readFileSync(id)
-        return {
-          code: `export default ${JSON.stringify(buffer)}`,
-          map: null,
-        }
-      }
-    },
-  }
-}

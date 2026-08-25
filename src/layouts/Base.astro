@@ -12,19 +12,14 @@ interface Props {
 }
 
 const {
-  meta: { articleDate, description = siteConfig.description, ogImage, title },
+  meta: { description = siteConfig.description, title },
 } = Astro.props
 ---
 
 <html class="scroll-smooth" lang={siteConfig.lang}>
   <head>
     <PostHog />
-    <BaseHead
-      articleDate={articleDate}
-      description={description}
-      ogImage={ogImage}
-      title={title}
-    />
+    <BaseHead description={description} title={title} />
   </head>
   <body
     class="mx-auto flex min-h-screen max-w-5xl flex-col bg-bgColor px-4 py-8 font-serif text-textColor antialiased sm:px-8 sm:py-16 md:mx-auto md:flex-row md:gap-x-10"
